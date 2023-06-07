@@ -1,0 +1,10 @@
+---
+- name: Print Network Interfaces Information
+  hosts: managed_nodes
+  gather_facts: yes
+  tasks:
+    - name: Print Network Interfaces
+      debug:
+        msg:
+            - ' Network interfaces discovered {{ansible_interfaces}} '
+

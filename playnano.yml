@@ -1,0 +1,9 @@
+---
+- name: Nanocheck
+  hosts: managed_nodes
+  tasks:
+    - name: MC check
+      dnf:
+          name: mc
+          state: latest
+          
