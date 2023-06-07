@@ -1,2 +1,4 @@
 ---
-# handlers file for masters-role
+- name: Reboot the servers if SELinux is changed
+  reboot:
+  

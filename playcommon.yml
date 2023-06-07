@@ -1,0 +1,7 @@
+---
+- name: Use the common role
+  hosts: managed_nodes
+  become: true
+
+  roles:
+    - name: common-role
