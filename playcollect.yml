@@ -4,4 +4,15 @@
   become: true
 
   roles:
-    - name: collectd-role
+    - role: collectd-role
+      vars:
+        monitoring_modules:
+          - cpu
+          - df
+          - processes
+          - protocols
+          - swap
+          - tcpconns
+          - uptime
+          - users
+          - vmem        

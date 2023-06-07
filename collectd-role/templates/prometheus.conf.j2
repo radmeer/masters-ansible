@@ -3,3 +3,6 @@
        Port "9103"
 </Plugin>
 
+{% for item in monitoring_modules %}
+LoadPlugin {{ item }}
+{% endfor %}

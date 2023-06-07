@@ -1,5 +1,5 @@
 ---
 - name: Monitoring needs restart
   service:
-    name: collectd
+    name: "{{monitoring_service}}"
     state: restarted

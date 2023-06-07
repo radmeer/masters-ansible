@@ -10,18 +10,15 @@
     state: started
     enabled: yes
 
-- name: Monitoring plugin installed
+- name: Monitoring exporter installed
   package:
-    name: "{{monitoring_plugin}}"
+    name: "{{monitoring_exporter}}"
     state: present
   notify: "Moniroing needs restart"
 
-- name: Monitoring plugin config delivered
-  copy:
-    src: "prometheus.conf"
-    dest: "/etc/collectd.d/prometheus.conf"
-    owner: root
-    group: root
-    mode: "0644"
+- name: Monitoring exporter config delivered
+  template:
+    src: "{{monitoring_exporter_file_template}}"
+    dest: "{{monitoring_exporter_file}}"
   notify: Monitoring needs restart
 
