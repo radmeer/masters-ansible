@@ -1,0 +1,5 @@
+---
+- name: Monitoring needs restart
+  service:
+    name: collectd
+    state: restarted

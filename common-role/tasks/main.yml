@@ -1,11 +1,11 @@
 ---
-- name: Install mc package
-  yum:
+- name: Mc needed
+  package:
     name: mc
     state: present
 
-- name: Install nano package
-  yum:
+- name: Nano needed
+  package:
     name: nano
     state: present
 

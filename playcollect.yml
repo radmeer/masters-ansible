@@ -1,0 +1,7 @@
+---
+- name: Monitoring
+  hosts: managed_nodes
+  become: true
+
+  roles:
+    - name: collectd-role

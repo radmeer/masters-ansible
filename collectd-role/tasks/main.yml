@@ -1,0 +1,27 @@
+---
+- name: Monitoring service installed
+  package:
+    name:  "{{monitoring_service}}"
+    state: present
+
+- name: Monioring service started
+  service:
+    name: "{{monitoring_service}}"
+    state: started
+    enabled: yes
+
+- name: Monitoring plugin installed
+  package:
+    name: "{{monitoring_plugin}}"
+    state: present
+  notify: "Moniroing needs restart"
+
+- name: Monitoring plugin config delivered
+  copy:
+    src: "prometheus.conf"
+    dest: "/etc/collectd.d/prometheus.conf"
+    owner: root
+    group: root
+    mode: "0644"
+  notify: Monitoring needs restart
+
