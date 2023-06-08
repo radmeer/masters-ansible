@@ -6,14 +6,4 @@
   roles:
     - role: collectd-role
       vars:
-        monitoring_action: disabled        
-        monitoring_modules:
-          - cpu
-          - df
-          - processes
-          - protocols
-          - swap
-          - tcpconns
-          - uptime
-          - users
-          - vmem        
+        monitoring_action: disabled
