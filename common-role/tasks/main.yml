@@ -1,4 +1,5 @@
 ---
+# Common role
 - name: Mc package
   package:
     name: mc
