@@ -1,24 +1,24 @@
 ---
-- name: Monitoring service installed
+- name: Monitoring package
   package:
     name:  "{{monitoring_service}}"
-    state: present
+    state: "{{ 'present' if monitoring_action == 'install' else 'absent' }}"
 
-- name: Monioring service started
+- name: Monioring service 
   service:
     name: "{{monitoring_service}}"
-    state: started
-    enabled: yes
-
-- name: Monitoring exporter installed
+    enabled: "{{ true if monitoring_action == 'install' else false }}"
+    state: "{{ 'started' if monitoring_action == 'install' else 'stopped' }}"
+    
+- name: Monitoring exporter package
   package:
     name: "{{monitoring_exporter}}"
-    state: present
-  notify: "Moniroing needs restart"
+    state: "{{ 'present' if monitoring_action == 'install' else 'absent' }}"
+  notify: Monitoring needs restart
 
-- name: Monitoring exporter config delivered
+- name: Monitoring exporter config 
   template:
-    src: "{{monitoring_exporter_file_template}}"
+    src: "{{monitoring_exporter_file_template if monitoring_action == 'install' else '/dev/null' }}"
     dest: "{{monitoring_exporter_file}}"
   notify: Monitoring needs restart
 

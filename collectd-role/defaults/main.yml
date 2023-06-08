@@ -1,5 +1,6 @@
 ---
 # defaults file for collectd-role
+monitoring_action: install
 monitoring_service: collectd
 monitoring_exporter: collectd-write_prometheus
 monitoring_exporter_file: /etc/collectd.d/prometheus.conf

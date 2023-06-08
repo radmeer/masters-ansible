@@ -6,7 +6,7 @@
   roles:
     - role: collectd-role
       vars:
-# default monitoring_actin is install        
+        monitoring_action: disabled        
         monitoring_modules:
           - cpu
           - df

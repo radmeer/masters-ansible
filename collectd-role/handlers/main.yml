@@ -3,3 +3,4 @@
   service:
     name: "{{monitoring_service}}"
     state: restarted
+  when: monitoring_action == 'install'
