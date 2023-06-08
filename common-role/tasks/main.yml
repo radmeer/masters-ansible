@@ -1,10 +1,10 @@
 ---
-- name: Mc needed
+- name: Mc package
   package:
     name: mc
     state: present
 
-- name: Nano needed
+- name: Nano package
   package:
     name: nano
     state: present

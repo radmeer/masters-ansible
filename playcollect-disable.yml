@@ -1,5 +1,5 @@
 ---
-- name: Monitoring
+- name: Monitoring disable
   hosts: managed_nodes
   become: true
 
